@@ -1,13 +1,39 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Recurso 1: Produtos (O Cardápio)
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String   // Campo 1
+  category    String   // Campo 2
+  price       Float    // Campo 3
+  size        String   // Campo 4
+  isAvailable Boolean  @default(true) // Campo 5
+}
+
+// Recurso 2: Funcionários (Sua Parte - Staff)
+model Employee {
+  id        Int      @id @default(autoincrement())
+  name      String   // Campo 1
+  role      String   // Campo 2
+  shift     String   // Campo 3
+  cpf       String   @unique // Campo 4
+  phone     String   // Campo 5
+  hiredAt   DateTime @default(now()) // Timestamp (Não conta)
+}
+
+// Recurso 3: Pedidos
+model Order {
+  id            Int      @id @default(autoincrement())
+  customerName  String   // Campo 1
+  tableNumber   Int      // Campo 2
+  total         Float    // Campo 3
+  status        String   // Campo 4
+  paymentMethod String   // Campo 5
 }
