@@ -9,11 +9,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = "postgresql://postgres:Eder12345678%21%40@localhost:5432/cafeteria_db?schema=public"
-}
-
 model Product {
   id              Int      @id @default(autoincrement())
   nome            String
