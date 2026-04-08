@@ -9,12 +9,36 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// 3. Seus modelos (Exemplo do Integrante 1)
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:Eder12345678%21%40@localhost:5432/cafeteria_db?schema=public"
+}
+
 model Product {
-  id              Int     @id @default(autoincrement())
+  id              Int      @id @default(autoincrement())
   nome            String
   categoria       String
   preco           Float
   tamanho         String
-  disponibilidade Boolean @default(true)
+  disponibilidade Boolean  @default(true)
+}
+
+model Employee {
+  id        Int      @id @default(autoincrement())
+  name      String
+  role      String
+  shift     String
+  cpf       String   @unique
+  phone     String
+  hiredAt   DateTime @default(now())
+}
+
+model Order {
+  id            Int      @id @default(autoincrement())
+  customerName  String
+  tableNumber   Int
+  total         Float
+  status        String
+  paymentMethod String
+  createdAt     DateTime @default(now())
 }
