@@ -17,7 +17,36 @@ const getEmployees = async (req, res) => {
   res.json(employees);
 };
 
+const updateEmployee = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, role, shift, phone } = req.body;
+    const updated = await prisma.employee.update({
+      where: { id: parseInt(id) },
+      data: { name, role, shift, phone }
+    });
+    res.json(updated);
+  } catch (error) {
+    res.status(404).json({ error: "Funcionário não encontrado." });
+  }
+};
+
+// 4. Remover da Equipe (DELETE)
+const deleteEmployee = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await prisma.employee.delete({
+      where: { id: parseInt(id) }
+    });
+    res.status(204).send();
+  } catch (error) {
+    res.status(404).json({ error: "Erro ao deletar funcionário." });
+  }
+};
+
 module.exports = {
   createEmployee,
-  getEmployees
+  getEmployees,
+  updateEmployee,
+  deleteEmployee
 };
