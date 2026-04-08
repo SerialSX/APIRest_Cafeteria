@@ -1,13 +1,13 @@
 const express = require('express');
-const app = express();
+const productRoutes = require('./src/routes/productRoutes');
+const employeeRoutes = require('./src/routes/employeeRoutes');
+const orderRoutes = require('./src/routes/orderRoutes');
 
+const app = express();
 app.use(express.json());
 
-const productRoutes = require('./src/routes/productRoutes');
-
 app.use('/produtos', productRoutes);
+app.use('/funcionarios', employeeRoutes);
+app.use('/pedidos', orderRoutes);
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`☕ Cafeteria API Online em http://localhost:${PORT}`);
-});
+app.listen(3000, () => console.log("Servidor rodando na porta 3000 ☕"));

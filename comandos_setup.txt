@@ -1,0 +1,38 @@
+===================================================
+☕ API CAFETERIA - COMANDOS DE CONFIGURAÇÃO
+===================================================
+
+# 0. Pré-requisitos (O que você precisa ter instalado)
+- Node.js (Para rodar o servidor)
+- MySQL Server & MySQL Workbench (Para o banco de dados)
+- Postman ou Insomnia (Para testar as rotas)
+
+# 1. Instalar as dependências do projeto
+npm install
+
+# 2. Configurar o Banco de Dados (MySQL)
+# Certifique-se de ter criado o banco "cafeteria" no MySQL Workbench.
+# Depois, ajuste a senha e o usuário na URL do arquivo .env
+
+# 3. Sincronizar o Prisma com o Banco (Gera as tabelas)
+npx prisma generate
+npx prisma migrate dev --name init_cafeteria
+
+# 4. Ligar o Servidor Local
+npm run dev
+
+===================================================
+🆘 EM CASO DE EMERGÊNCIA (ERRO NO BANCO)
+===================================================
+
+Se o Prisma reclamar de "drift" ou o banco ficar dessincronizado, rode o comando abaixo para resetar tudo do zero.
+AVISO: Isso apaga todos os dados cadastrados no banco!
+
+npx prisma migrate reset
+
+===================================================
+# COMANDOS DO GIT (Para salvar atualizações)
+git add .
+git commit -m "Sua mensagem aqui"
+git push origin "sua-branch"
+===================================================
