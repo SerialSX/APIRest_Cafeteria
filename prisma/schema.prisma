@@ -1,7 +1,7 @@
 // 1. Defina o provedor (no seu caso, PostgreSQL)
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:Eder12345678!%40@localhost:5432/cafeteria_db?schema=public"
+  url      = env("DATABASE_URL")
 }
 
 // 2. O gerador do Cliente JS
