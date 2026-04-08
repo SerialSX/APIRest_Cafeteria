@@ -78,7 +78,7 @@ PUT /:id : Atualiza o status do pedido (Pendente, Em Preparo, Entregue).
 
 DELETE /:id : Cancela/Remove um pedido.
 
-### Autores
+### ✒️ Autores
 
 https://github.com/SerialSX
 
