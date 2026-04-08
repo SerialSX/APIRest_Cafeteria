@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = "postgresql://postgres:Eder12345678%21%40@localhost:5432/cafeteria_db?schema=public"
 }
 
 model Product {

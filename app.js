@@ -1,20 +1,13 @@
-require('dotenv').config();
 const express = require('express');
-const app = express();
-
-app.use(express.json());
-
-// --- IMPORTANDO AS ROTAS ---
+const productRoutes = require('./src/routes/productRoutes');
 const employeeRoutes = require('./src/routes/employeeRoutes');
 const orderRoutes = require('./src/routes/orderRoutes');
-const productRoutes = require('./src/routes/productRoutes');
 
-// --- USANDO AS ROTAS ---
-app.use('/employees', employeeRoutes);
-app.use('/orders', orderRoutes);
+const app = express();
+app.use(express.json());
+
 app.use('/produtos', productRoutes);
+app.use('/funcionarios', employeeRoutes);
+app.use('/pedidos', orderRoutes);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`☕ API Cafeteria rodando na porta ${PORT}`);
-});
+app.listen(3000, () => console.log("Servidor rodando na porta 3000 ☕"));
