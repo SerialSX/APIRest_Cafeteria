@@ -1,17 +1,20 @@
+// 1. Defina o provedor (no seu caso, PostgreSQL)
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:Eder12345678!%40@localhost:5432/cafeteria_db?schema=public"
+}
+
+// 2. O gerador do Cliente JS
 generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
+// 3. Seus modelos (Exemplo do Integrante 1)
 model Product {
-  id              String  @id @default(uuid())
+  id              Int     @id @default(autoincrement())
   nome            String
   categoria       String
   preco           Float
   tamanho         String
-  disponibilidade Boolean
+  disponibilidade Boolean @default(true)
 }

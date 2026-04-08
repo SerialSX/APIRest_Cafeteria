@@ -7,6 +7,7 @@ const productRoutes = require('./src/routes/productRoutes');
 
 app.use('/produtos', productRoutes);
 
-app.listen(3000, () => {
-  console.log('Servidor rodando na porta 3000');
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`☕ Cafeteria API Online em http://localhost:${PORT}`);
 });
