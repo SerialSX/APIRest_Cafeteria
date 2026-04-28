@@ -1,1 +1,4 @@
 DATABASE_URL="postgresql://postgres:SUA_SENHA_AQUI@localhost:5432/cafeteria_db?schema=public"
+
+AUTH_USER=admin
+AUTH_PASS=cafeteria123

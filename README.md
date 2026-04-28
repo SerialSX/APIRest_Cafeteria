@@ -30,6 +30,9 @@ Crie um arquivo .env na raiz do projeto e adicione a URL de conexão com o seu b
 
 DATABASE_URL="postgresql://USUARIO:SENHA@localhost:5432/cafeteria_db?schema=public"
 
+AUTH_USER=seu_usuario
+AUTH_PASS=sua_senha
+
 
 ### 4. Configurar o Banco de Dados
 
@@ -37,6 +40,9 @@ Rode as migrações do Prisma para criar as tabelas no PostgreSQL:
 
 npx prisma db push
 
+## 🔐 Autenticação
+
+Esta API utiliza **Basic Authentication**. Todas as requisições devem incluir o header `Authorization` com as credenciais configuradas no `.env`.
 
 ### 5. Iniciar o servidor
 
